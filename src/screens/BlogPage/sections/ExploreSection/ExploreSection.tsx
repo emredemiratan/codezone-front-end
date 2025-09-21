@@ -62,11 +62,11 @@ export const ExploreSection = (): JSX.Element => {
                               alt={featuredTitle}
                               src={featured?.attributes?.img ?? '/blog/blog.png'}
                            />
-                           <h2 className="absolute m-6 bottom-4 left-4 md:bottom-6 md:left-6 lg:bottom-6 lg:left-6 font-saira-cond-40-bold font-[number:var(--saira-cond-40-bold-font-weight)] text-blackwhite text-[length:var(--saira-cond-40-bold-font-size)] tracking-[var(--saira-cond-40-bold-letter-spacing)] leading-[var(--saira-cond-40-bold-line-height)] whitespace-normal break-words max-w-[85%] md:max-w-[70%] lg:max-w-[65%] [font-style:var(--saira-cond-40-bold-font-style)] transition-colors group-hover:text-yellow">
+                           <h2 className="absolute m-4 bottom-3 left-3 md:m-6 md:bottom-6 md:left-6 lg:bottom-6 lg:left-6 font-saira-cond-40-bold font-[number:var(--saira-cond-40-bold-font-weight)] text-blackwhite text-[22px] md:text-[length:var(--saira-cond-40-bold-font-size)] tracking-[var(--saira-cond-40-bold-letter-spacing)] leading-[1.15] md:leading-[var(--saira-cond-40-bold-line-height)] whitespace-normal break-words max-w-[80%] md:max-w-[70%] lg:max-w-[65%] pr-16 md:pr-0 [font-style:var(--saira-cond-40-bold-font-style)] transition-colors group-hover:text-yellow">
                               {featuredTitle}
                            </h2>
                            <img
-                              className="absolute right-4 m-6 bottom-3 md:right-6 md:bottom-5 lg:right-6 lg:bottom-5 w-[52px] h-[52px] md:w-[60px] md:h-[60px] lg:w-[65px] lg:h-[65px]"
+                              className="absolute m-4 right-3 bottom-3 m-0 w-10 h-10 md:right-6 md:bottom-5 lg:right-6 lg:bottom-5 md:w-[60px] md:h-[60px] lg:w-[65px] lg:h-[65px]"
                               alt=""
                               src="https://c.animaapp.com/kkcWJj7D/img/frame-87.svg"
                               role="presentation"
