@@ -131,14 +131,19 @@ export const TrendingSection = (): JSX.Element => {
                </div>
             ))}
          </div>
+         <div>
+            <button
+               type="button"
+               aria-label="View all trending posts"
+               className="relative block mx-auto w-[188px] h-12 mt-8 mb-10 lg:-mt-9 lg:absolute lg:top-[687px] lg:left-[278px]"
+            >
+               <img src="/trends/seeAll.png" alt="" className="w-full h-full object-contain pointer-events-none select-none" />
 
-         <button className="mt-8 w-[188px] h-12 mx-auto lg:mt-0 lg:absolute lg:top-[687px] lg:left-[278px]" type="button" aria-label="View all trending posts">
-            <img className="absolute top-0 left-0 w-[195px] h-[57px] " alt="" src="/trends/seeAll.png" />
-
-            <span className="absolute top-3.5 left-11 font-saira-16-bold font-[number:var(--saira-16-bold-font-weight)] text-blackblack text-[length:var(--saira-16-bold-font-size)] text-center tracking-[var(--saira-16-bold-letter-spacing)] leading-[var(--saira-16-bold-line-height)] whitespace-nowrap [font-style:var(--saira-16-bold-font-style)]">
-               Tümünü Gör
-            </span>
-         </button>
+               <span className="absolute inset-0 flex items-center justify-center font-saira-16-bold font-[number:var(--saira-16-bold-font-weight)] text-blackblack text-[length:var(--saira-16-bold-font-size)] tracking-[var(--saira-16-bold-letter-spacing)] leading-[var(--saira-16-bold-line-height)] [font-style:var(--saira-16-bold-font-style)]">
+                  Tümünü Gör
+               </span>
+            </button>
+         </div>
       </section>
    );
 };
