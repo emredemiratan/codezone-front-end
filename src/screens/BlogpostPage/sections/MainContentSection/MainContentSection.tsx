@@ -26,7 +26,7 @@ export const MainContentSection = (): JSX.Element => {
 
    return (
       <article className="relative flex w-full max-w-[740px] flex-col items-start gap-6 px-5 md:px-0 md:gap-[30px]">
-         <div className="inline-flex items-center justify-center gap-2.5 relative flex-[0_0_auto]">
+         <div className="inline-flex mt-8 items-center justify-center gap-2.5 relative flex-[0_0_auto]">
             <img className="relative h-[14.9px] w-5 ml-[-1.00px] md:w-[19.73px]" alt="Views icon" src="https://c.animaapp.com/wnzjM5fQ/img/vector-3.svg" />
 
             <div className="relative w-fit mt-[-1.00px] font-saira-16-reg font-[number:var(--saira-16-reg-font-weight)] text-blackwhite text-[length:var(--saira-16-reg-font-size)] tracking-[var(--saira-16-reg-letter-spacing)] leading-[var(--saira-16-reg-line-height)] whitespace-nowrap [font-style:var(--saira-16-reg-font-style)]">
