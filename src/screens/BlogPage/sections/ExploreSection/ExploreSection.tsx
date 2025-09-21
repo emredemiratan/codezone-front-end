@@ -48,7 +48,7 @@ export const ExploreSection = (): JSX.Element => {
          />
 
          <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 py-8 sm:py-10 lg:px-0 lg:py-0 lg:max-w-none lg:mx-0 lg:static">
-            <h1 className="mt-4 lg:mt-0 lg:absolute lg:top-[123px] lg:left-[77px] font-saira-cond-display font-[number:var(--saira-cond-display-font-weight)] text-blackblack text-[length:var(--saira-cond-display-font-size)] tracking-[var(--saira-cond-display-letter-spacing)] leading-[var(--saira-cond-display-line-height)] whitespace-nowrap [font-style:var(--saira-cond-display-font-style)]">
+            <h1 className="mt-16 lg:mt-0 lg:absolute lg:top-[123px] lg:left-[77px] font-saira-cond-display font-[number:var(--saira-cond-display-font-weight)] text-blackblack text-[length:var(--saira-cond-display-font-size)] tracking-[var(--saira-cond-display-letter-spacing)] leading-[var(--saira-cond-display-line-height)] whitespace-nowrap [font-style:var(--saira-cond-display-font-style)]">
                BLOG
             </h1>
 
