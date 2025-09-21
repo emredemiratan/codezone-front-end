@@ -107,7 +107,6 @@ export const HeroSection = (): JSX.Element => {
                   <div className="absolute inset-0 bg-black/20 hidden md:block" />
                   <div className="relative z-10 w-full md:h-full sm:flex sm:items-center sm:justify-end pt-24 pb-12 md:pt-0 md:pb-0">
                      <div className="w-full px-8">
-                        {/* METİN BLOĞU: daha sağda & sola hizalı */}
                         <div className="mx-auto sm:mx-0 sm:ml-auto  md:max-w-[360px]  xl:max-w-[760px] 2xl:max-w-[760px] max-w-xl text-white text-center sm:text-left grid place-items-center sm:place-items-start justify-items-center sm:justify-items-start gap-6 md:pr-8 lg:pr-16">
                            <h1 className="font-saira-condensed font-bold text-3xl text-center md:text-left md:text-[40px] md:leading-[110%] md:tracking-[-0.02em] xl:text-[60.1px] xl:leading-[110%] xl:tracking-[-0.02em]">
                               {slide.title}
@@ -130,12 +129,10 @@ export const HeroSection = (): JSX.Element => {
                               </button>
                            </div>
 
-                           {/* Mobil görsel: metinler sola hizalı kalır */}
                            <div className="mt-0 md:hidden -mx-8">
                               <Image className="w-full h-auto" src={slide.image} alt="Slide image" width={800} height={450} />
                            </div>
 
-                           {/* Mobil noktalar: sola hizalı */}
                            <div className="mt-6 md:hidden">
                               <div className="inline-flex items-center justify-start gap-2" role="group" aria-label="Slayt göstergesi">
                                  {slides.map((s, index) => (

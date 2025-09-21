@@ -61,7 +61,6 @@ export const DiscoverSection = (): JSX.Element => {
    return (
       <section className="relative w-full bg-blackblack" role="main" aria-label="Keşfet Bölümü">
          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-            {/* Üst başlık ve görünüm butonları */}
             <div className="flex items-center justify-between">
                <div className="flex items-center gap-4">
                   <h1 className="font-saira-cond-display font-[number:var(--saira-cond-display-font-weight)] text-blackwhite text-[length:var(--saira-cond-display-font-size)] tracking-[var(--saira-cond-display-letter-spacing)] leading-[var(--saira-cond-display-line-height)] whitespace-nowrap [font-style:var(--saira-cond-display-font-style)]">
@@ -97,7 +96,6 @@ export const DiscoverSection = (): JSX.Element => {
                NE GÖRMEK İSTERSİN?
             </h2>
 
-            {/* Kategori filtreleri */}
             <nav className="mt-6 overflow-x-auto no-scrollbar" aria-label="Category filters">
                <div className="flex flex-nowrap gap-3 min-w-max">
                   {categoryTags.map((tag) => (
@@ -122,9 +120,7 @@ export const DiscoverSection = (): JSX.Element => {
                </div>
             </nav>
 
-            {/* İçerik alanı: sol keşfet listesi + sağ yan panel (footer alanı) */}
             <div className="mt-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-10">
-               {/* Sol: Blog listesi */}
                <div>
                   <div className={viewMode === 'list' ? 'flex flex-col gap-10' : 'grid grid-cols-2 gap-6'}>
                      {blogPosts.map((post) => (
@@ -182,7 +178,6 @@ export const DiscoverSection = (): JSX.Element => {
                      </button>
                   </div>
                </div>
-               {/* Sağ: Footer alanı (haber bülteni + bağlantılar) */}
                <aside className="lg:pl-6">
                   <p className="font-saira-cond-40-bold font-[number:var(--saira-cond-40-bold-font-weight)] text-blackwhite text-[length:var(--saira-cond-40-bold-font-size)] tracking-[var(--saira-cond-40-bold-letter-spacing)] leading-[var(--saira-cond-40-bold-line-height)] [font-style:var(--saira-cond-40-bold-font-style)]">
                      GELİŞMELERDEN İLK SEN HABERDAR OL!

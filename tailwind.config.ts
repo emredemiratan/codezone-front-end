@@ -29,7 +29,6 @@ const config: Config = {
             'saira-cond-display': 'var(--saira-cond-display-font-family)',
          },
          backgroundImage: {
-            'hero-pattern': "url('https://c.animaapp.com/fWtWwMnc/img/hip-hop-singer-stage-during-concertative-ai-2.png')",
             'live-stream-pattern': "url('https://c.animaapp.com/fWtWwMnc/img/group-5771.png')",
             'trend-1': "url('https://c.animaapp.com/fWtWwMnc/img/group@2x.png')",
             'trend-2': "url('https://c.animaapp.com/fWtWwMnc/img/group-2@2x.png')",

@@ -49,13 +49,11 @@ export const BlogSection = (): JSX.Element => {
    return (
       <footer className="relative w-full bg-blackblack" role="contentinfo">
          <div className="relative mx-auto max-w-[1522px] px-5 sm:px-8 lg:px-20 py-10">
-            {/* Logo */}
             <div className="hidden lg:block">
                <img className="w-[249px] h-[63px]" alt="Rapkology Logo" src="https://c.animaapp.com/kkcWJj7D/img/group-1-1@2x.png" />
             </div>
 
             <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-               {/* Left: newsletter */}
                <div>
                   <h2 className="max-w-[420px] font-saira-cond-25-bold font-[number:var(--saira-cond-25-bold-font-weight)] text-blackwhite text-[length:var(--saira-cond-25-bold-font-size)] tracking-[var(--saira-cond-25-bold-letter-spacing)] leading-[var(--saira-cond-25-bold-line-height)] [font-style:var(--saira-cond-25-bold-font-style)]">
                      GELİŞMELERDEN İLK SEN HABERDAR OL!
@@ -94,7 +92,6 @@ export const BlogSection = (): JSX.Element => {
                   </form>
                </div>
 
-               {/* Right: social + nav */}
                <div>
                   <div className="">
                      <img className="w-[186px] h-[26px]" alt="Rapkology Brand" src="/discover/socialMedia.png" />

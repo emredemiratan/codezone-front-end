@@ -102,14 +102,12 @@ export const FavoritesOfTheMonthSection = (): JSX.Element => {
 
    return (
       <section className="relative w-full bg-blackblack overflow-hidden">
-         {/* Üst eğik beyaz şerit - ekranın soluna dayalı */}
          <img
             className="hidden sm:block absolute top-0 left-0 w-[596px] max-w-[70%] h-auto pointer-events-none select-none z-0"
             alt="Vector"
             src="https://c.animaapp.com/fWtWwMnc/img/vector-7-1.svg"
          />
 
-         {/* Platform logoları (YouTube / Spotify) - Desktop */}
          <div className="hidden sm:block absolute top-[30px] left-[91px] z-10 pointer-events-none select-none">
             <img src="/favoritesOfTheMonth/youtube.png" alt="YouTube" className="w-40 h-12 object-contain" />
          </div>
@@ -119,7 +117,6 @@ export const FavoritesOfTheMonthSection = (): JSX.Element => {
          </div>
 
          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-            {/* Mobile: Beyaz şerit + platform logoları başlığın ÜSTÜNDE ve tam genişlikte */}
             <div className="sm:hidden relative h-12 mb-4">
                <img
                   className="absolute inset-0 w-full h-full object-cover object-left"
@@ -132,7 +129,6 @@ export const FavoritesOfTheMonthSection = (): JSX.Element => {
                </div>
             </div>
 
-            {/* Başlık + Liste layout: desktop yan yana, mobil alt alta */}
             <div className="mt-2 sm:mt-10 flex flex-col md:flex-row md:items-start md:justify-between md:gap-10 lg:gap-16">
                <div className="md:w-[260px] md:flex-shrink-0">
                   <h2 className="pt-14 sm:pt-24 md:pt-12 text-center md:text-left font-saira-cond-display font-[number:var(--saira-cond-display-font-weight)] text-blackwhite text-[34px] sm:text-[48px] md:text-[length:var(--saira-cond-display-font-size)] tracking-[var(--saira-cond-display-letter-spacing)] leading-[var(--saira-cond-display-line-height)] [font-style:var(--saira-cond-display-font-style)]">
@@ -142,7 +138,6 @@ export const FavoritesOfTheMonthSection = (): JSX.Element => {
                   </h2>
                </div>
 
-               {/* Yatay kart listesi */}
                <div
                   ref={scrollRef}
                   onScroll={handleScroll}
@@ -188,7 +183,6 @@ export const FavoritesOfTheMonthSection = (): JSX.Element => {
                </div>
             </div>
 
-            {/* Kaydırma ilerleme çubuğu */}
             <div className="mt-8 sm:mt-10 w-[80%] sm:w-[60%] max-w-[640px] mx-auto h-[5px] bg-blackblack-900 rounded-[60px]">
                <div className="h-[5px] bg-yellow rounded-[60px]" style={{ width: `${scrollProgress}%` }} />
             </div>

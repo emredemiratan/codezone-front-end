@@ -1,37 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Codezone Vaka Çalışması – Rapkology Frontend
 
-## Getting Started
+Bu repo, Codezone tarafından iletilen vaka çalışmasının frontend uygulamasını içerir. Proje, Figma tasarımına olabildiğince yakın, responsive (masaüstü/mobil) arayüz, Swiper tabanlı slider ve mock verinin (JSON) doğrudan import edilerek kullanımı gereksinimlerine uygun geliştirilmiştir. Teslim tarihi hedefi: 22 Eylül 2025.
 
-First, run the development server:
+### Canlı Demo ve Kod
+
+-  Canlı Demo (Vercel/Netlify): https://codezone-front-end.vercel.app
+-  GitHub Repository: https://github.com/emredemiratan/codezone-front-end.git
+
+## Teknolojiler
+
+-  Next.js 15 (App Router) + React 19
+-  TypeScript
+-  Tailwind CSS v4 + tailwindcss-animate
+-  Swiper 12 (slider)
+-  clsx, tailwind-merge
+
+## Kurulum ve Çalıştırma
+
+Önkoşullar: Node.js >= 18.18 (önerilen 20+)
 
 ```bash
+# bağımlılıkları kurun
+npm install
+
+# geliştirme
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# prod build
+npm run build
+npm start
+
+# lint
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Geliştirme sunucusu: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Proje Mimarisi (Özet)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-  `src/app` App Router sayfaları
+   -  `page.tsx`: Ana sayfa, `Desktop` ekranını render eder
+   -  `blog/page.tsx`, `blog/[slug]/page.tsx`: Blog liste ve detay
+-  `src/screens` ekran/seksiyon kompozisyonları
+   -  `Desktop/sections/HeroSection/HeroSection.tsx`: Swiper slider + JSON destekli slaytlar
+   -  `BlogPage/sections/ExploreSection/ExploreSection.tsx`: JSON’dan blog öne çıkan ve liste
+-  `src/components/Header/Header.tsx`: Sticky, scroll-aware, mobil menülü header
+-  `src/data.json`: Mock veri kaynağı (doğrudan import edilir)
+-  `tailwind.config.ts`: Renk/font değişkenleri ve arka plan görselleri
+-  `next.config.ts`: `images.remotePatterns` (Cloudinary görsellerine izin)
 
-## Learn More
+## Özellikler
 
-To learn more about Next.js, take a look at the following resources:
+-  Figma’ya yakın, responsive arayüz (header, hero, blog grid)
+-  Swiper ile hero slider (loop, navigation, pagination benzeri dot kontrolleri)
+-  Mock data (`src/data.json`) doğrudan import edilerek içerik besleme
+-  Erişilebilirlik odakları: `aria-label`, `role`, `aria-expanded`, `Escape` ile mobil menü kapatma
+-  Performans için Turbopack tabanlı dev/build komutları
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Teknik Tercihler ve Gerekçeler
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-  Next.js 15 + React 19: En güncel App Router mimarisi, server-first yetenekler, yerleşik performans optimizasyonları.
+-  Mock veri importu: Case gereği hızlı geliştirme ve network bağımsızlığı için `src/data.json` doğrudan import edilmiştir. Örnek kullanım:
+   -  `HeroSection` ve `ExploreSection` içinde `createdAt` alanına göre sıralama, son içerikler öne çıkarılır.
+-  Swiper 12: Hero slider için stabilized API, modüler kullanım (`Navigation`, `Pagination`), mobil/desktop farklılaştırmaları.
+-  Tailwind CSS v4: Tasarıma yakın spacing/typography; değişken tabanlı renk ve font tanımları (`--blackblack`, `--yellow`, `--font-saira*`).
+-  Görseller: Cloudinary ve statik `public/*` kullanımı. `next.config.ts` ile güvenli harici kaynak izni.
 
-## Deploy on Vercel
+## Veri Yapısı ve İçerik Yönetimi
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-  Kaynak: `src/data.json` (dizi)
+-  Kullanılan alanlar: `attributes.title`, `attributes.desc`, `attributes.img`, `attributes.slug`, `createdAt`
+-  Sıralama: Yeni içerikler önce gelecek şekilde `createdAt` azalan sıralama
+-  Öne çıkan içerik: `ExploreSection` ilk öğeyi hero kartı olarak kullanır; sonraki 4 öğe yan listede gösterilir
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# codezone-front-end
+İçerik eklemek için `src/data.json` sonuna aynı şema ile yeni obje eklemeniz yeterlidir. `slug` alanı varsa detay rota: `/blog/[slug]`.
+
+## Erişilebilirlik (A11y)
+
+-  Header: Klavye ile kapanan mobil menü (`Escape`), `aria-expanded`, `aria-controls`
+-  Navigasyon ve butonlar: Anlamlı `aria-label` ve `role` kullanımı
+-  Slider dot’ları: `aria-current` ile aktif durum bildirimi
+
+## Performans Notları
+
+-  Geliştirmede Turbopack (Next 15 default) kullanıldı
+-  Görsel arkaplanlarında bazı yerlerde `img` tercih edilerek layout kontrolü sağlandı; içerik görsellerinde `next/image` kullanımı yaygınlaştırılabilir
+-  Cloudinary görselleri uzak kaynaktan, izinli pattern ile yüklenir
+
+## Deploy
+
+### Vercel
+
+-  Framework Preset: Next.js
+-  Build Command: `npm run build`
+-  Output: Otomatik (App Router)
+-  Node.js: 20.x
+
+### Netlify
+
+-  Next.js Runtime ile otomatik yapılandırma desteklenir
+-  Build Command: `npm run build`
+-  Publish: `.next`
+
+## Geliştirme Notları ve Sınırlar
+
+-  Bu proje bir vaka çalışmasıdır; gerçek backend yoktur
+-  Login butonu ve arama ikonu görseldir; fonksiyonellik placeholder’dır
+-  Blog detay sayfaları temel şablonla yapılandırılmıştır; SEO/OG zenginleştirmesi minimaldir
+
+## Yol Haritası (Öneri)
+
+-  `img` → `next/image` geçişini tamamlayıp `blurDataURL` eklemek
+-  Blog detay sayfalarında dinamik metadata ve OG görselleri
+-  `data.json` yerine SSR/ISR ile API’dan veri besleme
+-  `sitemap.xml`, `robots.txt` ve `Open Graph` geliştirmeleri
+-  Erişilebilirlik iyileştirmeleri (kontrast, odak halkaları, skip links)
+
+## Katkı ve Lisans
+
+-  PR’lar memnuniyetle karşılanır
+-  Lisans: — (talebe göre eklenecektir)
+
+## Hızlı Bakış (Dosya Yapısı)
+
+```
+src/
+  app/
+    blog/
+      [slug]/page.tsx
+      page.tsx
+    layout.tsx
+    page.tsx
+  components/
+    Header/Header.tsx
+  screens/
+    Desktop/sections/HeroSection/HeroSection.tsx
+    BlogPage/sections/ExploreSection/ExploreSection.tsx
+  data.json
+```
+
+İletişim: Sorularınız için benimle iletişime geçebilirsiniz. İyi çalışmalar!

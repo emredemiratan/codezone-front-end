@@ -21,14 +21,12 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
    const [scrolled, setScrolled] = useState(false);
    const [mobileOpen, setMobileOpen] = useState(false);
 
-   // scroll yönünü takip etmek için ref kullan (yeniden render tetiklemez)
    const lastY = useRef(0);
 
    useEffect(() => {
       const onScroll = () => {
          const y = window.scrollY;
          setScrolled(y > 10);
-         // aşağı doğru ve belli eşiğin üstünde ise gizle
          if (y > lastY.current && y > 200) setVisible(false);
          else setVisible(true);
          lastY.current = y;
@@ -38,7 +36,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
       return () => window.removeEventListener('scroll', onScroll);
    }, []);
 
-   // ESC ile kapatma
    useEffect(() => {
       const onKey = (e: KeyboardEvent) => {
          if (e.key === 'Escape') setMobileOpen(false);
@@ -51,22 +48,18 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
       <header
          className={clsx('fixed top-0 left-0 z-50 w-full h-20 transition-all duration-500 border-b', {
             '-translate-y-full': !visible,
-            // ana sayfada tepedeyken: çok koyu olmayan şeffaf
             'bg-black/20 border-transparent': isHomePage && !scrolled,
-            // scroll’da veya iç sayfalarda: koyu opak + blur
             'bg-black/70 backdrop-blur-md border-black/40': !isHomePage || scrolled,
          })}
          role="banner"
       >
          <div className="container mx-auto h-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            {/* Logo */}
             <div className="flex-shrink-0">
                <Link href="/" aria-label="Anasayfa">
                   <img className="h-[52px] w-auto md:h-[59px]" alt="Rapkology logo" src="https://c.animaapp.com/fWtWwMnc/img/group-1@2x.png" />
                </Link>
             </div>
 
-            {/* Masaüstü navigasyon */}
             <nav className="hidden md:flex items-center gap-7" role="navigation" aria-label="Ana navigasyon">
                {navigationItems.map((item, i) => (
                   <Link
@@ -79,17 +72,8 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
                ))}
             </nav>
 
-            {/* Sağ eylemler */}
             <div className="hidden md:flex items-center gap-6">
-               <Image
-                  className="cursor-pointer"
-                  src="/menu/search.png"
-                  alt="Ara"
-                  width={23}
-                  height={22}
-                  // beyaz görünmesi için invert
-                  style={{ filter: 'brightness(0) invert(1)' }}
-               />
+               <Image className="cursor-pointer" src="/menu/search.png" alt="Ara" width={23} height={22} style={{ filter: 'brightness(0) invert(1)' }} />
                <button
                   type="button"
                   aria-label="Giriş yap"
@@ -101,7 +85,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
                </button>
             </div>
 
-            {/* Hamburger (Mobil) */}
             <button
                type="button"
                aria-label={mobileOpen ? 'Menüyü kapat' : 'Menüyü aç'}
@@ -110,7 +93,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
                onClick={() => setMobileOpen((s) => !s)}
                className="md:hidden inline-flex items-center justify-center h-10 w-10 relative"
             >
-               {/* Üst Çizgi (daha kısa, sola kırpılmış) */}
                <span
                   className={clsx(
                      'absolute right-0 block h-[3px] bg-yellow-300 transition-all duration-300',
@@ -118,7 +100,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
                   )}
                />
 
-               {/* Alt Çizgi */}
                <span
                   className={clsx(
                      'absolute right-0 block h-[3px] bg-yellow-300 transition-all duration-300',
@@ -128,8 +109,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
             </button>
          </div>
 
-         {/* Mobil menü (slide + overlay) */}
-         {/* Overlay */}
          <div
             className={clsx(
                'md:hidden fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity',
@@ -137,7 +116,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
             )}
             onClick={() => setMobileOpen(false)}
          />
-         {/* Panel */}
          <div
             id="mobile-menu"
             className={clsx(
@@ -154,7 +132,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
                   <img className="h-10 w-auto" alt="Rapkology logo" src="https://c.animaapp.com/fWtWwMnc/img/group-1@2x.png" />
                </Link>
                <button className="h-10 w-10 grid place-items-center" aria-label="Kapat" onClick={() => setMobileOpen(false)}>
-                  {/* X ikonunu hamburger ile aynı stil dönüşümünde zaten yaratıyoruz; yedek olarak çarpı */}
                   <span className="sr-only">Kapat</span>
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" className="text-yellow-300" />
@@ -174,7 +151,6 @@ export const Header = ({ navigationItems }: HeaderProps): JSX.Element => {
                   </Link>
                ))}
 
-               {/* arama & giriş */}
                <div className="mt-6 flex items-center gap-4">
                   <Image src="/menu/search.png" alt="Ara" width={23} height={22} style={{ filter: 'brightness(0) invert(1)' }} />
                   <button

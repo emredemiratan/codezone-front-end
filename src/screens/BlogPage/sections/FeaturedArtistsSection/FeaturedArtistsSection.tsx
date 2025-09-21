@@ -115,16 +115,13 @@ export const FeaturedArtistsSection = (): JSX.Element => {
 
    return (
       <section className="relative w-full bg-blackblack overflow-hidden">
-         {/* Decorative background only on desktop */}
          <img
             className="pointer-events-none hidden lg:block absolute w-[43.45%] h-[43.77%] top-0 left-0"
             alt="Background decoration"
             src="https://c.animaapp.com/kkcWJj7D/img/path-0-1.svg"
          />
 
-         {/* Content container */}
          <div className="relative mx-auto max-w-[1200px] px-5 sm:px-8 lg:px-20 py-10">
-            {/* Header row */}
             <div className="flex items-center justify-between gap-6">
                <h1 className="font-saira-cond-display font-[number:var(--saira-cond-display-font-weight)] text-blackwhite text-[length:var(--saira-cond-display-font-size)] tracking-[var(--saira-cond-display-letter-spacing)] leading-[var(--saira-cond-display-line-height)] whitespace-nowrap [font-style:var(--saira-cond-display-font-style)]">
                   KEŞFET
@@ -142,7 +139,6 @@ export const FeaturedArtistsSection = (): JSX.Element => {
                </div>
             </div>
 
-            {/* Categories chips */}
             <nav className="mt-6 overflow-x-auto no-scrollbar">
                <div className="flex items-start gap-5 min-w-max">
                   {categories.map((category) => (
@@ -168,14 +164,12 @@ export const FeaturedArtistsSection = (): JSX.Element => {
                </div>
             </nav>
 
-            {/* Posts grid */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                {blogPosts.map((post) => (
                   <BlogPostCard key={post.id} post={post} />
                ))}
             </div>
 
-            {/* Load more */}
             <div className="mt-10 flex justify-center">
                <button className="relative w-[197px] h-12 cursor-pointer" onClick={handleLoadMore} aria-label="Load more blog posts">
                   <img

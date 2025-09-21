@@ -35,8 +35,8 @@ export default function RootLayout({
    ];
 
    return (
-      <html lang="en">
-         <body className={`${saira.variable} ${sairaCondensed.variable} font-sans`}>
+      <html lang="en" suppressHydrationWarning>
+         <body className={`${saira.variable} ${sairaCondensed.variable} font-sans`} suppressHydrationWarning>
             <Header navigationItems={navigationItems} />
             <main>{children}</main>
          </body>

@@ -37,9 +37,7 @@ export const LiveStreamSection = (): JSX.Element => {
                src="https://c.animaapp.com/fWtWwMnc/img/group-5790@2x.png"
             />
 
-            {/* Küçük ekranda: 2 sütun. Metin üstte (col-span-2), altta Man & Girl yan yana */}
             <div className="grid h-full grid-cols-2 md:grid-cols-12 items-center gap-6 py-10">
-               {/* ORTA METİN – ÜSTTE (küçük ekranda col-span-2) */}
                <div className="order-1 md:order-2 col-span-2 md:col-span-4 flex flex-col items-center text-center">
                   <div className="relative flex flex-col items-center">
                      <div className="relative rotate-[-3.70deg] [font-family:'Saira_Condensed',Helvetica] font-light text-blackwhite text-[48px] md:text-[68.2px] tracking-[0] leading-[1] whitespace-nowrap">
@@ -88,12 +86,10 @@ export const LiveStreamSection = (): JSX.Element => {
                   </div>
                </div>
 
-               {/* MAN – küçük ekranda solda/altta; md ve üstü sol blok */}
                <div className="order-2 md:order-1 col-span-1 md:col-span-4 flex justify-end md:justify-start">
                   <img className="w-full max-w-[220px] md:max-w-[420px] h-auto object-contain" alt="Man" src="/liveStream/man.png" />
                </div>
 
-               {/* GIRL – küçük ekranda sağda/altta; md ve üstü sağ blok (daha küçük) */}
                <div className="order-3 md:order-3 col-span-1 md:col-span-4 flex justify-start md:justify-end">
                   <img className="w-full max-w-[170px] sm:max-w-[175px] md:max-w-[340px] h-auto object-contain" alt="Girl" src="/liveStream/girl.png" />
                </div>
